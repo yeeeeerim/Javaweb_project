@@ -46,10 +46,10 @@ const upload = multer({
   }),
   limits: { fileSize: 5 * 1024 * 1024 },
 });
-app.get('/upload', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
-app.post('/upload', upload.single('image'), (req, res) => {
+app.post('/', upload.single('file'), (req, res) => {
   console.log(req.file);
   res.send('ok');
 });
